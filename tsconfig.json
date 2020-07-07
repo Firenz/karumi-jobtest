@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "esnext",
+    "outDir": "dist/",
+    "moduleResolution": "node",
+    "declaration": false,
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "allowJs": true,
+    "checkJs": false,
+    "jsx": "react",
+    "pretty": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "lib": ["dom", "dom.iterable", "ESNext"],
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "baseUrl": "./src/",
+    "paths": {
+      "core": ["core/"],
+      "router": ["router/"],
+      "pods": ["pods/"],
+      "layouts": ["layouts/"],
+      "pages": ["pages/"]
+    }
+  },
+  "include": ["./src/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
+}
+
