@@ -35,17 +35,6 @@ module.exports = merge(base, {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, "css-loader"]
       },
-      {
-        test: /\.(svg|png|jpe?g|gif)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "url-loader",
-          options: {
-            limit: 10 * 1024,
-            name: "./media/[name].[hash].[ext]"
-          }
-        }
-      }
     ]
   },
   plugins: [
