@@ -1,6 +1,5 @@
 const { merge } = require("webpack-merge");
 const base = require("./base.webpack.config");
-const path = require("path");
 
 module.exports = merge(base, {
   mode: "development",
@@ -36,25 +35,17 @@ module.exports = merge(base, {
         test: /\.css$/,
         use: ["style-loader", "css-loader"]
       },
-      {
-        test: /\.(svg|png|jpe?g|gif)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "url-loader",
-          options: {
-            limit: 10 * 1024,
-            name: "./media/[name].[ext]"
-          }
-        }
-      }
     ],
   },
   devtool: "inline-source-map",
   devServer: {
-    contentBase: path.resolve(__dirname, 'public'),
-    liveReload: true,
+    contentBase: './dist', // Content base
+    inline: true, // Enable watch and live reload
+    host: 'localhost',
     port: 9000,
+    liveReload: true,
     historyApiFallback: true,
     writeToDisk: true,
+    stats: 'errors-only',
   },
 });
