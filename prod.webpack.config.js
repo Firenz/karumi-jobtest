@@ -3,9 +3,9 @@ const base = require("./base.webpack.config");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = merge(base, {
-  mode: "production",
+  mode: 'production',
   output: {
-    filename: "[name].[chunkhash].js"
+    filename: '[name].[chunkhash].js',
   },
   module: {
     rules: [
@@ -15,32 +15,32 @@ module.exports = merge(base, {
         use: [
           MiniCssExtractPlugin.loader,
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
               modules: {
-                localIdentName: "[hash:base64]"
+                localIdentName: '[hash:base64]',
               },
-              localsConvention: "camelCase"
-            }
+              localsConvention: 'camelCase',
+            },
           },
           {
-            loader: "sass-loader",
+            loader: 'sass-loader',
             options: {
-              implementation: require("sass")
-            }
-          }
-        ]
+              implementation: require('sass'),
+            },
+          },
+        ],
       },
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader"]
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
-    ]
+    ],
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "./css/[name].[chunkhash].css",
-      chunkFilename: "[id].css"
-    })
-  ]
+      filename: './css/[name].[chunkhash].css',
+      chunkFilename: '[id].css',
+    }),
+  ],
 });
