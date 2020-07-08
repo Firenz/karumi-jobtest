@@ -12,7 +12,7 @@
     "test": "jest --verbose -c ./config/test/jest.json",
     "test:watch": "npm test -- --watchAll -i --no-cache",
     "test:coverage": "rimraf coverage && jest -c ./config/test/jest.coverage.json --verbose",
-    "deploy:gh-pages": "npm run build:prod && gh-pages -d dist -r https://$github_token@github.com/Firenz/karumi-jobtest.git"
+    "deploy:gh-pages": "npm run build:prod && gh-pages-clean && gh-pages -d dist -r https://$github_token@github.com/Firenz/karumi-jobtest.git"
   },
   "repository": {
     "type": "git",
