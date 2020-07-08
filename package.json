@@ -2,7 +2,7 @@
   "name": "karumi-jobtest",
   "version": "1.0.0",
   "description": "Programming test for a Software Engineer position in Karumi.",
-  "homepage": "https://github.com/Firenz/karumi-jobtest#readme",
+  "homepage": "https://github.com/Firenz/karumi-jobtest/",
   "main": "index.js",
   "scripts": {
     "start": "rimraf dist && webpack-dev-server --mode development --open --config dev.webpack.config.js",
