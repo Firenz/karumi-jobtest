@@ -6,6 +6,7 @@ module.exports = merge(base, {
   watch: true,
   output: {
     filename: './js/[name].js',
+    publicPath: '/',
   },
   module: {
     rules: [
