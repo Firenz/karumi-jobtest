@@ -5,6 +5,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = merge(base, {
   mode: 'production',
   output: {
+    publicPath: '/karumi-jobtest/',
     filename: '[name].[chunkhash].js',
   },
   module: {
