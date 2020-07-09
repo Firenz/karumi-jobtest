@@ -8,6 +8,7 @@ install:
   - npm install -g codecov
 script:
   - npm run deploy:gh-pages
+  - jest -c ./config/test/jest.coverage.json --verbose && codecov
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 deploy:
