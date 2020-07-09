@@ -1,11 +1,16 @@
 language: node_js
 node_js:
   - "stable"
+install:
+  - npm install -g codecov
 cache:
   directories:
     - node_modules
 script:
+  - codecov
   - npm run deploy:gh-pages
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
 deploy:
   provider: pages
   skip_cleanup: true
@@ -13,4 +18,4 @@ deploy:
   local_dir: dist
   keep_history: true
   on:
-    branch: master
+    branch: codecov-config
