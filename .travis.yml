@@ -1,9 +1,13 @@
 language: node_js
 node_js:
   - "stable"
+cache:
+  directories:
+    - node_modules
 install:
   - npm install -g codecov
 script:
+  - npm install
   - npm run deploy:gh-pages
   - jest -c ./config/test/jest.coverage.json --verbose && codecov
 after_success:
