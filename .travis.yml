@@ -1,14 +1,14 @@
 language: node_js
 node_js:
   - "stable"
+  cache:
+directories:
+  - node_modules
 install:
   - npm install -g codecov
-cache:
-  directories:
-    - node_modules
 script:
-  - codecov
   - npm run deploy:gh-pages
+  - npm run test:coverage && codecov -t $github_token
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 deploy:
