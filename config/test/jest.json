@@ -3,6 +3,5 @@
   "restoreMocks": true,
   "rootDir": "../../",
   "moduleDirectories": ["<rootDir>/src", "node_modules"],
-  "testMatch": ["<rootDir>/src/**/>(*.)spec.{js, jsx, ts, tsx}"],
   "setupFilesAfterEnv": ["<rootDir>/config/test/setup-after.ts"]
 }
