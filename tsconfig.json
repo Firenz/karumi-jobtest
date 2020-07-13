@@ -7,6 +7,7 @@
     "moduleResolution": "node",
     "declaration": false,
     "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true,
     "removeComments": true,
     "preserveConstEnums": true,
     "sourceMap": true,
@@ -23,11 +24,13 @@
     "isolatedModules": true,
     "baseUrl": "./src/",
     "paths": {
+      "common": ["common/"],
       "core": ["core/"],
       "router": ["router/"],
       "pods": ["pods/"],
       "layouts": ["layouts/"],
-      "pages": ["pages/"]
+      "pages": ["pages/"],
+      "img": ["img/"]
     }
   },
   "include": ["./src/**/*"],
