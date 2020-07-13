@@ -8,11 +8,13 @@ module.exports = {
   context: path.join(basePath, 'src'),
   resolve: {
     alias: {
+      common: path.resolve(__dirname, './src/common'),
       core: path.resolve(__dirname, './src/core'),
       router: path.resolve(__dirname, './src/router'),
       pods: path.resolve(__dirname, './src/pods'),
       layouts: path.resolve(__dirname, './src/layouts'),
       pages: path.resolve(__dirname, './src/pages'),
+      img: path.resolve(__dirname, './src/img'),
     },
     extensions: ['.js', '.ts', '.jsx', '.tsx'],
   },
@@ -51,13 +53,6 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
-      },
-      {
-        test: /\.(png|jpg|gif|svg)$/,
-        loader: 'file-loader',
-        options: {
-          name: 'assets/img/[name].[ext]?[hash]',
-        },
       },
       {
         test: /\.html$/,
