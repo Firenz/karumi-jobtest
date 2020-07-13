@@ -30,7 +30,7 @@
       "pods": ["pods/"],
       "layouts": ["layouts/"],
       "pages": ["pages/"],
-      "img": ["img/"]
+      "img": ["img/"],
     }
   },
   "include": ["./src/**/*"],
