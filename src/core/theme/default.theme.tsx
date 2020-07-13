@@ -53,7 +53,7 @@ const defaultTheme = createMuiTheme({
       textTransform: 'uppercase',
     },
     body1: {
-			fontSize: '34px',
+			fontSize: '1.2rem',
 			fontWeight: 'normal',
     },
     button: {
