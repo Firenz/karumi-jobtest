@@ -1,9 +1,9 @@
-import { createMuiTheme, makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import { createMuiTheme } from '@material-ui/core/styles';
 
-// Theme based on these guidelines 
+// Theme based on these guidelines
 // https://project-quality-assurance.karumi.com/design-collaboration-guidelines.html
 
-const theme = createMuiTheme({
+export const defaultTheme = createMuiTheme({
   palette: {
     primary: {
       main: '#1C97F5',
@@ -53,28 +53,13 @@ const theme = createMuiTheme({
       textTransform: 'uppercase',
     },
     body1: {
-			fontSize: '34px',
-			fontWeight: 'normal',
-		},
+      fontSize: '1.2rem',
+      fontWeight: 'normal',
+    },
+    button: {
+      fontSize: '1rem',
+      fontWeight: 'normal',
+      textTransform: 'capitalize',
+    },
   },
 });
-
-const defaultStyle = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      backgroundColor: theme.palette.background.default,
-      color: theme.palette.text.primary,
-      margin: 0,
-      padding: 0,
-      width: `100vw`,
-      maxWidth: `100%`,
-      minHeight: `100vh`,
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center"
-    }
-  })
-);
-
-export default theme;
-export {theme, defaultStyle};

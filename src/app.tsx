@@ -1,10 +1,17 @@
-import * as React from "react";
+import * as React from 'react';
+import { ThemeProvider } from '@material-ui/core';
+import { SessionProvider, defaultTheme } from 'core';
+import { Router } from 'router';
+import { LoginPage, UserPage } from 'pages';
 
 export const App: React.FC = () => {
-
   return (
     <React.Fragment>
-      <h1>Hello from React</h1>
+      <SessionProvider>
+        <ThemeProvider theme={defaultTheme}>
+          <Router />
+        </ThemeProvider>
+      </SessionProvider>
     </React.Fragment>
   );
 };
