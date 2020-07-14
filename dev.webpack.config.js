@@ -36,6 +36,18 @@ module.exports = merge(base, {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
       },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 50000,
+            name: './img/[hash].[name].[ext]',
+            esModule: false,
+          },
+        },
+      },
     ],
   },
   devtool: 'inline-source-map',
