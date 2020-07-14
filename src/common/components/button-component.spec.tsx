@@ -2,8 +2,6 @@ import * as React from 'react';
 import { render, fireEvent, act, cleanup } from '@testing-library/react';
 import { ButtonComponent } from './button.component';
 
-afterEach(cleanup);
-
 describe('Button component specs', () => {
   it('should display', () => {
     //Arrange
@@ -12,7 +10,9 @@ describe('Button component specs', () => {
     };
 
     //Act
-    const { getByTestId } = render(<ButtonComponent {...props}>Text</ButtonComponent>);
+    const { getByTestId } = render(
+      <ButtonComponent {...props}>Text</ButtonComponent>
+    );
     const btnElement = getByTestId('button') as HTMLElement;
 
     //Assert
@@ -27,7 +27,9 @@ describe('Button component specs', () => {
     };
 
     //Act
-    const { getByTestId } = render(<ButtonComponent {...props}>Text</ButtonComponent>);
+    const { getByTestId } = render(
+      <ButtonComponent {...props}>Text</ButtonComponent>
+    );
     const btnElement = getByTestId('button') as HTMLElement;
 
     fireEvent.click(btnElement);
@@ -37,3 +39,5 @@ describe('Button component specs', () => {
     expect(props.onClick).toHaveBeenCalled();
   });
 });
+
+afterEach(cleanup);

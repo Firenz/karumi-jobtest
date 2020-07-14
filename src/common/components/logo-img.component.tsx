@@ -2,8 +2,6 @@ import * as React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { createStyles } from '@material-ui/core';
 
-const logoImg = require('../../img/karumi-logo.png');
-
 const useStyles = makeStyles(() =>
   createStyles({
     media: {
@@ -14,6 +12,14 @@ const useStyles = makeStyles(() =>
 
 export const LogoImgComponent: React.FunctionComponent = () => {
   const classes = useStyles();
+  const logoImg = require('../../img/karumi-logo.png');
 
-  return <img src={logoImg} alt="Karumi" className={classes.media} />;
+  return (
+    <img
+      data-testid="logo-img"
+      src={logoImg}
+      alt="Karumi"
+      className={classes.media}
+    />
+  );
 };

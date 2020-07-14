@@ -2,8 +2,6 @@ import * as React from 'react';
 import { render, fireEvent, act, cleanup } from '@testing-library/react';
 import { TextFieldComponent } from './text-field.component';
 
-afterEach(cleanup);
-
 describe('TextField component specs', () => {
   it('should display text field', () => {
     //Arrange
@@ -60,3 +58,5 @@ describe('TextField component specs', () => {
     expect(props.input.onChange).toHaveBeenCalled();
   });
 });
+
+afterEach(cleanup);
