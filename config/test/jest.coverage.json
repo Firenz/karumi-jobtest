@@ -17,11 +17,15 @@
   ],
   "coverageThreshold": {
     "global": {
-      "branches": 0,
-      "functions": 0,
-      "lines": 0,
-      "statements": 0
+      "branches": 50,
+      "functions": 50,
+      "lines": 50,
+      "statements": 10
     }
   },
-  "collectCoverageFrom": ["**/*.{ts,tsx}"]
+  "collectCoverageFrom": ["**/*.{ts,tsx}"],
+  "moduleNameMapper": {
+    "\\.(jpg|ico|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "./fileMock.js",
+    "\\.(css|less)$": "./fileMock.js"
+  }
 }
