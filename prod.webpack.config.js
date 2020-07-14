@@ -44,6 +44,7 @@ module.exports = merge(base, {
           options: {
             limit: 10 * 1024,
             name: './img/[name].[hash].[ext]',
+            esModule: false,
           },
         },
       },
