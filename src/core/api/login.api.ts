@@ -1,4 +1,4 @@
-import mockData from 'core/data/login.data';
+import { mockData } from "core";
 
 export const validateCredentials = (
   user: string,
