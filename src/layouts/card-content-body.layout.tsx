@@ -15,7 +15,7 @@ interface Props {
   children: any;
 }
 
-export const CardContentLayout: React.FunctionComponent<Props> = (
+export const CardContentBodyLayout: React.FunctionComponent<Props> = (
   props: Props
 ) => {
   const classes = useStyles(props);
