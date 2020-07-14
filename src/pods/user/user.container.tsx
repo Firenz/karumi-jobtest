@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { useHistory } from 'react-router-dom';
-import { linkRoutes } from 'router';
+import { switchRoutes } from 'router';
 import { UserComponent } from './user.component';
 
 export const UserContainer: React.FunctionComponent = () => {
   const history = useHistory();
 
   const navigateToLogin = () => {
-    history.push(linkRoutes.login);
+    history.push(switchRoutes.login);
   };
 
   const handleLogout = (): void => {

@@ -6,7 +6,7 @@ import {
   SessionContext,
   validateCredentials,
 } from 'core';
-import { linkRoutes } from 'router';
+import { switchRoutes } from 'router';
 import { LoginComponent } from './login.component';
 
 export const LoginContainer = () => {
@@ -16,7 +16,7 @@ export const LoginContainer = () => {
 
   const navigateToUser = (loginInfo: LoginEntityVm) => {
     updateLogin(loginInfo.login);
-    history.push(linkRoutes.logged);
+    history.push(switchRoutes.logged);
   };
 
   const handleLogin = (loginInfo: LoginEntityVm) => {
