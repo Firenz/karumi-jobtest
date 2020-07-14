@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Switch, Route, HashRouter } from 'react-router-dom';
 import { switchRoutes } from './routes';
 import { LoginPage, UserPage } from 'pages';
 
 export const Router: React.FunctionComponent = () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Switch>
         <Route
           exact={true}
@@ -17,6 +17,6 @@ export const Router: React.FunctionComponent = () => {
           component={UserPage}
         />
       </Switch>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
