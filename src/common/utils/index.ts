@@ -1,1 +1,2 @@
-export * from './randomize-token';
+export * from './randomize';
+export * from './token';

@@ -1,4 +1,4 @@
-export const randomizeToken = (length: number): string => {
+export const randomizeString = (length: number): string => {
   const characters =
     'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
   const charactersLength = characters.length;
