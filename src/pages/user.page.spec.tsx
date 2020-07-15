@@ -2,8 +2,6 @@ import * as React from 'react';
 import { render, cleanup } from '@testing-library/react';
 import { UserPage } from './user.page';
 
-afterEach(cleanup);
-
 describe('User page specs', () => {
   it('should display page', () => {
     //Act
@@ -14,3 +12,5 @@ describe('User page specs', () => {
     expect(pageElement).toBeInTheDocument();
   });
 });
+
+afterEach(cleanup);
