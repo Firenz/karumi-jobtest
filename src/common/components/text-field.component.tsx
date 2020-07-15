@@ -7,11 +7,6 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     textField: {
       height: '5.5rem',
-      // margin: '0 1rem',
-      // '& .MuiTextField-root': {
-      //   margin: theme.spacing(1),
-      //   width: 200,
-      // },
     },
     input: {
       padding: '1rem',

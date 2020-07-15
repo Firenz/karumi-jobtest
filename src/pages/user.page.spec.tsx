@@ -5,7 +5,7 @@ import { UserPage } from './user.page';
 afterEach(cleanup);
 
 describe('User page specs', () => {
-  xit('should display page', () => {
+  it('should display page', () => {
     //Act
     const { getByTestId } = render(<UserPage />);
     const pageElement = getByTestId('user-page') as HTMLElement;

@@ -5,7 +5,7 @@ import { LoginPage } from './login.page';
 afterEach(cleanup);
 
 describe('Login page specs', () => {
-  xit('should display page', () => {
+  it('should display page', () => {
     //Act
     const { getByTestId } = render(<LoginPage />);
     const pageElement = getByTestId('login-page') as HTMLElement;
