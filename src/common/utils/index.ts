@@ -1,2 +1,2 @@
 export * from './randomize';
-export * from './token';
+export * from './local-storage';

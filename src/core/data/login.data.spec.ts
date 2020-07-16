@@ -1,4 +1,5 @@
-import { LoginEntityApi, mockData } from "./login.data";
+import { LoginEntityApi } from "core";
+import { mockData } from "./login.data";
 
 describe('Login Entity api data specs', () => {
   it('LoginEntityApi should have login and password properties', () => {

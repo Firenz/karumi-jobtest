@@ -1,5 +1,10 @@
 import * as React from 'react';
-import { getLocalStoredTokenSession, setLocalStoredTokenSession, checkValidityLocalStoredTokenSession } from 'common';
+import {
+  getSavedTokenSession,
+  saveTokenSession,
+  getSavedLoginInfo,
+  saveLoginInfo,
+} from 'common';
 
 interface Context {
   tokenSession: string;
@@ -15,12 +20,12 @@ interface Props {
 export const SessionContext = React.createContext<Context>({
   tokenSession: 'no token session',
   login: 'no user',
-  updateTokenSession: (value) => {
+  updateTokenSession: () => {
     console.warn(
       'if you are reading this, likely you forgot to add the provider on top of your app'
     );
   },
-  updateLogin: (value) => {
+  updateLogin: () => {
     console.warn(
       'if you are reading this, likely you forgot to add the provider on top of your app'
     );
@@ -30,19 +35,18 @@ export const SessionContext = React.createContext<Context>({
 export const SessionProvider: React.FunctionComponent<Props> = (
   props: Props
 ) => {
-  const [login, setLogin] = React.useState('');
-  const [tokenSession, setTokenSession] = React.useState('');
+  const [login, setLogin] = React.useState(getSavedLoginInfo());
+  const [tokenSession, setTokenSession] = React.useState(
+    getSavedTokenSession()
+  );
 
   React.useEffect(() => {
-    const localStoredTokenSession = getLocalStoredTokenSession() || '';
-    if (checkValidityLocalStoredTokenSession()) {
-      setTokenSession(localStoredTokenSession);
-    }
-  }, []);
-
-  React.useEffect(() => {
-    setLocalStoredTokenSession(tokenSession);
+    saveTokenSession(tokenSession);
   }, [tokenSession]);
+
+  React.useEffect(() => {
+    saveLoginInfo(login);
+  }, [login]);
 
   return (
     <SessionContext.Provider
