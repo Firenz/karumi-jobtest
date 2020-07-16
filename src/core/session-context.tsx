@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { getLocalStoredTokenSession, setLocalStoredTokenSession } from 'common';
+import { getLocalStoredTokenSession, setLocalStoredTokenSession, checkValidityLocalStoredTokenSession } from 'common';
 
 interface Context {
   tokenSession: string;
@@ -34,8 +34,8 @@ export const SessionProvider: React.FunctionComponent<Props> = (
   const [tokenSession, setTokenSession] = React.useState('');
 
   React.useEffect(() => {
-    const localStoredTokenSession = getLocalStoredTokenSession();
-    if (localStoredTokenSession != null && localStoredTokenSession !== '') {
+    const localStoredTokenSession = getLocalStoredTokenSession() || '';
+    if (checkValidityLocalStoredTokenSession()) {
       setTokenSession(localStoredTokenSession);
     }
   }, []);

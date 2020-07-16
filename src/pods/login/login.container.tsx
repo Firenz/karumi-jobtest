@@ -8,48 +8,36 @@ import {
 } from 'core';
 import { switchRoutes } from 'router';
 import { LoginComponent } from './login.component';
-import { generateTokenSession, getLocalStoredTokenSession } from 'common/utils';
+import {
+  clearLocalStoredTokenSession,
+  checkValidityLocalStoredTokenSession,
+} from 'common/utils';
 
 export const LoginContainer = () => {
   const history = useHistory();
   const [initialLogin] = React.useState<LoginEntityVm>(createEmptyLogin());
   const { updateLogin } = React.useContext(SessionContext);
-  const { tokenSession, updateTokenSession } = React.useContext(SessionContext);
-
-  const createTokenSession = () => {
-    const newTokenSession = generateTokenSession();
-    updateTokenSession(newTokenSession);
-  };
+  const { updateTokenSession } = React.useContext(SessionContext);
 
   const navigateToUser = (loginInfo: LoginEntityVm) => {
-    createTokenSession();
     updateLogin(loginInfo.login);
     history.push(switchRoutes.logged);
   };
 
   const handleLogin = (loginInfo: LoginEntityVm) => {
-    validateCredentials(loginInfo.login, loginInfo.password).then(
-      (areValidCredentials) => {
-        if (areValidCredentials) {
-          navigateToUser(loginInfo);
-        } else {
-          alert(
-            'Invalid credentials, use admin@mail.com/test for testing purposes.'
-          );
-        }
-      }
-    );
+    validateCredentials(loginInfo.login, loginInfo.password)
+      .then((tokenSession) => {
+        updateTokenSession(tokenSession);
+        navigateToUser(loginInfo);
+      })
+      .catch((error) => alert(error));
   };
 
   React.useEffect(() => {
-    const localStoredTokenSession = getLocalStoredTokenSession();
-    if (
-      localStoredTokenSession != null &&
-      localStoredTokenSession !== '' &&
-      localStoredTokenSession === tokenSession
-    ) {
+    if (checkValidityLocalStoredTokenSession()) {
       history.push(switchRoutes.logged);
     } else {
+      clearLocalStoredTokenSession();
     }
   }, []);
 

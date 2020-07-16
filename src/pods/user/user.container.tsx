@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { useHistory } from 'react-router-dom';
 import { switchRoutes } from 'router';
+import { clearLocalStoredTokenSession, checkValidityLocalStoredTokenSession } from 'common/utils';
 import { UserComponent } from './user.component';
-import { getLocalStoredTokenSession, clearLocalStoredTokenSession } from 'common/utils';
 
 export const UserContainer: React.FunctionComponent = () => {
   const history = useHistory();
@@ -17,8 +17,7 @@ export const UserContainer: React.FunctionComponent = () => {
   };
 
   React.useEffect(() => {
-    const localStoredTokenSession = getLocalStoredTokenSession();
-    if(localStoredTokenSession == null) {
+    if(!checkValidityLocalStoredTokenSession()) {
       navigateToLogin();
     }
   }, []);
