@@ -34,8 +34,8 @@ export const LoginContainer = () => {
         navigateToUser(loginInfo);
       })
       .catch((error) => {
+        setLoading(false);
         alert(error);
-        setLoading(true);
       });
   };
 
