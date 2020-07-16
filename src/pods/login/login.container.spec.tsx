@@ -1,14 +1,13 @@
 import * as React from 'react';
-import { HashRouter, Switch, Route } from 'react-router-dom';
+import * as ReactRouterDom from 'react-router-dom';
 import {
   render,
   fireEvent,
   waitFor,
-  waitForElement,
+  cleanup,
 } from '@testing-library/react';
-import { SessionProvider } from 'core';
+import { SessionProvider, validateCredentials } from 'core';
 import * as api from 'core/api';
-import * as loginVm from 'core/model';
 import { LoginContainer } from './login.container';
 import { UserPage } from 'pages';
 import { randomizeString } from 'common';
@@ -16,27 +15,33 @@ import { randomizeString } from 'common';
 const renderWithRouter = (component: any) => {
   return {
     ...render(
-      <HashRouter>
-        <Switch>
-          <Route path="/logged" component={UserPage} />
-        </Switch>
+      <ReactRouterDom.HashRouter>
+        <ReactRouterDom.Switch>
+          <ReactRouterDom.Route path="/logged" component={UserPage} />
+        </ReactRouterDom.Switch>
         <SessionProvider>{component}</SessionProvider>
-      </HashRouter>
+      </ReactRouterDom.HashRouter>
     ),
   };
 };
 
 describe('login container specs', () => {
   xit('should call validate credentials when submitted login info', async () => {
-    //Arrange
-    const loginStub = jest.spyOn(loginVm, 'createEmptyLogin')
-    .mockReturnValue({
-      login: 'admin@mail.com',
-      password: 'test',
-    });
-    const validateCredentialsStub = jest
-      .spyOn(api, 'validateCredentials')
-      .mockResolvedValue(randomizeString(50));
+    const validateCredentials = jest.fn().mockResolvedValue(true);
+    jest.mock('core/api', () => ({
+      ...jest.requireActual('core/api') as typeof api,
+      validateCredentials
+    }));
+    // const validateCredentialsStub = jest
+    //   .spyOn(api, 'validateCredentials')
+    //   .mockResolvedValue(true);
+    const mockHistoryPush = jest.fn();
+    jest.mock('react-router-dom', () => ({
+      ...jest.requireActual('react-router-dom') as typeof ReactRouterDom,
+      useHistory: () => ({
+        push: mockHistoryPush
+      })
+    }));
 
     //Act
     const { getByTestId } = renderWithRouter(<LoginContainer />);
@@ -46,13 +51,15 @@ describe('login container specs', () => {
       fireEvent.click(buttonElement);
     });
 
-    const userPageElement = await waitForElement(() =>
+    const userPageElement = await waitFor(() =>
       getByTestId('user-page')
     );
 
     //Assert
-    expect(loginStub).toHaveBeenCalled();
-    expect(validateCredentialsStub).toHaveBeenCalled();
     expect(userPageElement).toBeInTheDocument();
+    expect(validateCredentials).toHaveBeenCalled();
+    expect(mockHistoryPush).toHaveBeenCalled();
   });
 });
+
+afterEach(cleanup);
