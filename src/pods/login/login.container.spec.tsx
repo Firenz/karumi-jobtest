@@ -10,6 +10,7 @@ import { SessionProvider, validateCredentials } from 'core';
 import * as api from 'core/api';
 import { LoginContainer } from './login.container';
 import { UserPage } from 'pages';
+import { randomizeString } from 'common';
 
 const renderWithRouter = (component: any) => {
   return {

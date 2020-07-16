@@ -25,12 +25,7 @@ export const LoginPage: React.FunctionComponent = () => {
       <CenteredLayout>
         <CardLayout>
           <CardContent className={classes.cardContent} data-testid="login-page">
-            <CardContentTopLayout>
-              <LogoImgComponent />
-            </CardContentTopLayout>
-            <CardContentBodyLayout>
-              <LoginContainer />
-            </CardContentBodyLayout>
+            <LoginContainer/>
           </CardContent>
         </CardLayout>
       </CenteredLayout>

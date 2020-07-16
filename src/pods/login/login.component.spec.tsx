@@ -11,6 +11,7 @@ describe('login component specs', () => {
         login: '',
         password: '',
       },
+      loadingState: false,
     };
 
     //Act
@@ -35,6 +36,7 @@ describe('login component specs', () => {
         login: '',
         password: '',
       },
+      loadingState: false,
     };
 
     //Act
@@ -58,6 +60,7 @@ describe('login component specs', () => {
         login: '',
         password: '',
       },
+      loadingState: false,
     };
 
     //Act
