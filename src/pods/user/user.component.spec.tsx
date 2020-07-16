@@ -7,6 +7,8 @@ describe('User component specs', () => {
     //Arrange
     const props = {
       handleLogout: jest.fn(),
+      loginInfo: '',
+      loadingState: false
     };
 
     //Act
@@ -25,6 +27,8 @@ describe('User component specs', () => {
     //Arrange
     const props = {
       handleLogout: jest.fn(),
+      loginInfo: '',
+      loadingState: false
     };
 
     //Act

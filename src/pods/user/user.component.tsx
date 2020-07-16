@@ -1,8 +1,14 @@
 import * as React from 'react';
-import { makeStyles, Theme, createStyles, Typography } from '@material-ui/core';
-import { ButtonComponent } from 'common';
+import {
+  makeStyles,
+  Theme,
+  createStyles,
+  Typography,
+} from '@material-ui/core';
+import { ButtonComponent, LogoImgComponent, LoadingComponent } from 'common';
+import { CardContentTopLayout, CardContentBodyLayout } from 'layouts';
 
-const useStyles = makeStyles(() =>
+const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     cardContent: {
       width: '100%',
@@ -24,29 +30,48 @@ const useStyles = makeStyles(() =>
 );
 
 interface Props {
+  loadingState: boolean;
+  loginInfo: string;
   handleLogout: () => void;
 }
 
 export const UserComponent: React.FunctionComponent<Props> = (props: Props) => {
-  const { handleLogout } = props;
+  const { handleLogout, loginInfo, loadingState } = props;
   const classes = useStyles(props);
 
   return (
     <React.Fragment>
-      <Typography data-testid="text-component" variant="body1" component="h1" className={classes.text}>
-        Welcome user!
-      </Typography>
-      <div className={classes.button} data-testid="user-component">
-        <ButtonComponent
-          data-testid="logout-button"
-          type="button"
-          variant="contained"
-          color="primary"
-          onClick={handleLogout}
-        >
-          Logout
-        </ButtonComponent>
-      </div>
+      {loadingState && (
+        <LoadingComponent loadingState={loadingState}/>
+      )}
+      {!loadingState && (
+        <React.Fragment>
+          <CardContentTopLayout>
+            <LogoImgComponent />
+          </CardContentTopLayout>
+          <CardContentBodyLayout>
+            <Typography
+              data-testid="text-component"
+              variant="body1"
+              component="h1"
+              className={classes.text}
+            >
+              Welcome {loginInfo}!
+            </Typography>
+            <div className={classes.button} data-testid="user-component">
+              <ButtonComponent
+                data-testid="logout-button"
+                type="button"
+                variant="contained"
+                color="primary"
+                onClick={handleLogout}
+              >
+                Logout
+              </ButtonComponent>
+            </div>
+          </CardContentBodyLayout>
+        </React.Fragment>
+      )}
     </React.Fragment>
   );
 };

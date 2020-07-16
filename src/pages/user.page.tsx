@@ -46,12 +46,7 @@ export const UserPage: React.FunctionComponent<Props> = (props: Props) => {
       <CenteredLayout>
         <CardLayout>
           <CardContent className={classes.cardContent} data-testid="user-page">
-            <CardContentTopLayout>
-              <LogoImgComponent />
-            </CardContentTopLayout>
-            <CardContentBodyLayout>
-              <UserContainer />
-            </CardContentBodyLayout>
+            <UserContainer/>
           </CardContent>
         </CardLayout>
       </CenteredLayout>
