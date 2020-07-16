@@ -11,6 +11,7 @@ import * as api from 'core/api';
 import * as loginVm from 'core/model';
 import { LoginContainer } from './login.container';
 import { UserPage } from 'pages';
+import { generateTokenSession } from 'common';
 
 const renderWithRouter = (component: any) => {
   return {
@@ -35,7 +36,7 @@ describe('login container specs', () => {
     });
     const validateCredentialsStub = jest
       .spyOn(api, 'validateCredentials')
-      .mockResolvedValue(true);
+      .mockResolvedValue(generateTokenSession());
 
     //Act
     const { getByTestId } = renderWithRouter(<LoginContainer />);
