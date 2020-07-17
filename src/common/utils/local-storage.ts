@@ -18,12 +18,12 @@ export const getSavedTokenSession = (): string => {
   return localStorage.getItem(localStorageDataNames.token) || '';
 };
 
-export const checkValidityTokenSession = (): boolean => {
+export const isEmptyTokenSession = (): boolean => {
   const localStoredTokenSession = getSavedTokenSession();
   if (localStoredTokenSession != null && localStoredTokenSession !== '') {
-    return true;
-  } else {
     return false;
+  } else {
+    return true;
   }
 };
 

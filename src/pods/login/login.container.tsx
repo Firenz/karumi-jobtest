@@ -9,13 +9,13 @@ import {
   validateSession,
   mapperApiToVm,
 } from 'core';
-import { clearSavedData } from 'common/utils';
+import { clearSavedData, isEmptyTokenSession } from 'common/utils';
 import { LoginComponent } from './login.component';
 
 export const LoginContainer = () => {
   const history = useHistory();
   const [initialLogin] = React.useState<LoginEntityVm>(createEmptyLogin());
-  const [loading, setLoading] = React.useState<boolean>(true);
+  const [loading, setLoading] = React.useState<boolean>(false);
   const { tokenSession, updateLogin, updateTokenSession } = React.useContext(
     SessionContext
   );
@@ -40,6 +40,8 @@ export const LoginContainer = () => {
   };
 
   React.useEffect(() => {
+    if (isEmptyTokenSession()) return;
+
     setLoading(true);
     validateSession(tokenSession)
       .then((response) => {

@@ -6,7 +6,7 @@ import { validateSession, SessionContext } from 'core';
 
 export const UserContainer: React.FunctionComponent = () => {
   const history = useHistory();
-  const [loading, setLoading] = React.useState<boolean>(true);
+  const [loading, setLoading] = React.useState<boolean>(false);
   const {
     login,
     tokenSession,
