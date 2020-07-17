@@ -32,9 +32,6 @@ describe('login container specs', () => {
       ...jest.requireActual('core/api') as typeof api,
       validateCredentials
     }));
-    // const validateCredentialsStub = jest
-    //   .spyOn(api, 'validateCredentials')
-    //   .mockResolvedValue(true);
     const mockHistoryPush = jest.fn();
     jest.mock('react-router-dom', () => ({
       ...jest.requireActual('react-router-dom') as typeof ReactRouterDom,
