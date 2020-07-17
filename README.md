@@ -12,9 +12,9 @@ This is a programming test for a Software Engineer position in [Karumi](https://
 
 
 ## Description of the project
-> The app constains a log in which the user can enter their email and password into the platform. 
+> The app contains a log in which the user can enter their email and password into the platform. 
 >
-> This log in process will generate a session token which should be persisted into the application so the user doesn’t have to type the credentials when opening the app again and again.
+> This login process will generate a session token which should be persisted into the application so the user doesn’t have to type the credentials when opening the app again and again.
 >
 > Once the user is logged in, a button to close the user session appears.
 
@@ -44,7 +44,7 @@ As a side note, a production build with this app is running in the [GitHub Pages
 ```
 npm run test
 ```
-- To make the test to run in loop to watch your changes in code
+- To make the test to run in a loop to watch your changes in code
 ```
 npm run test:watch
 ```
@@ -75,9 +75,9 @@ npm run build:stats
 ## Things that could have been done better
 - [Codecov](https://codecov.io/) integration: Though being integrated with Travis CI, with every commit the informs [were always blank](https://docs.codecov.io/docs/error-reference#section-empty-reports), though locally running test coverage worked correctly. Seemed to be a problem with folders paths but I didn't know how to fix it. So in the end, I removed it to avoid code smell.
 
-- Testing with React Routing: Being pretty new in testing and TDD, I still don't know how to mock useStats properly in React components. Also, I have a warning in history pushes while testing routing between components that I didn't know how to fix. These tests are still in the project, marked to be skipped, for the purpose of showcasing the tests.
+- Testing with React Routing: Being pretty new in testing and TDD, I still don't know how to mock useStats properly in React components. Also, I have a warning in history pushes while testing routing between components that I didn't know how to fix. These tests are still in the project, marked to be skipped, to showcase the tests.
 
-- Authentication: I've never worked with authentication and persistence with Javascript & React. Ended up using [localStorage to do persistence](https://www.robinwieruch.de/local-storage-react) with a fake token session. A good way to have done this would have been: to mock the [auth token with JWT](https://jwt.io/) in the server and both server and app with a shared encrypt key to decipher the auth token.
+- Authentication: I've never worked with authentication and persistence with Javascript & React. Ended up using [localStorage to do persistence](https://www.robinwieruch.de/local-storage-react) with a fake token session. A good way to have done this would have been: to mock the [auth token with JWT](https://jwt.io/) in the server and both server and app with a shared encrypted key to decipher the auth token.
 
 # Development environment
 - Language: Typescript
@@ -96,6 +96,6 @@ npm run build:stats
 - Browser: Chrome v83 64-bits
 
 # License
-This proyect is licensed under the [MIT license](https://github.com/Firenz/karumi-jobtest/blob/master/LICENSE).
+This project is licensed under the [MIT license](https://github.com/Firenz/karumi-jobtest/blob/master/LICENSE).
 
-Logo brand used is part of the [Karumi](https://www.karumi.com/) brand.
+The logo brand used is part of the [Karumi](https://www.karumi.com/) brand.
